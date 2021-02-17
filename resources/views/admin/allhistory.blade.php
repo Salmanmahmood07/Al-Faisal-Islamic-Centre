@@ -36,7 +36,8 @@ overflow: hidden;"
                 <div class="row">
                     <!-- column -->
                     <div class="col-md-2">
-      <a href="{{url('admin/addhistory')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal">Add New History</button></a>
+      <a href="{{url('admin/addhistory')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal"
+         style="margin-left:950px;">Add New History</button></a>
          </div>
 
                     <div class="col-12">
@@ -89,44 +90,8 @@ overflow: hidden;"
       <div class="row">
                     <!-- column -->
       <div class="col-md-2">
-      <a href="{{url('admin/addmission')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal">Add New Mission</button></a>
-         </div>
-
-                    <div class="col-12">
-@@ -136,14 +134,14 @@
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <!-- /Mission Area -->
-
-                    <!-- Vision Area -->
-      <div class="row">
-                    <!-- column -->
-      <div class="col-md-2">
-      <a href="{{url('admin/addvision')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal"
-         style="margin-left:975px;">Add New Vison</button></a>
-      <a href="{{url('admin/addvision')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal">Add New Vison</button></a>
-         </div>
-
-                    <div class="col-12">
-@@ -188,6 +186,7 @@
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <!-- /Mission Area -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-@@ -196,6 +195,7 @@
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="row">
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-
+      <a href="{{url('admin/addmission')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal"
+         style="margin-left:945px;">Add New Mission</button></a>
          </div>
 
                     <div class="col-12">
@@ -177,27 +142,8 @@ overflow: hidden;"
       <div class="row">
                     <!-- column -->
       <div class="col-md-2">
-      <a href="{{url('admin/addvision')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal">Add New Vison</button></a>
-         </div>
-
-                    <div class="col-12">
-@@ -188,6 +186,7 @@
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <!-- /Mission Area -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-@@ -196,6 +195,7 @@
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="row">
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-
+      <a href="{{url('admin/addvision')}}"><button type="button" class="btn waves-effect waves-light  btn-info" data-toggle="modal" data-target="#exampleModal"
+         style="margin-left:975px;">Add New Vison</button></a>
          </div>
 
                     <div class="col-12">
