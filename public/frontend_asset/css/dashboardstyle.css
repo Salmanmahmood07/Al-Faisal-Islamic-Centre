@@ -1,0 +1,101 @@
+.package-list-items {
+    border-radius: 3px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.package-list-items:hover {
+    -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.4);
+}
+
+.package-list-items .image {
+    width: 30%;
+    float: left;
+    position: relative;
+}
+
+.package-list-items .image img {
+    border-radius: 3px 0 0 3px;
+}
+
+.package-list-items .absolute-in-image .duration {
+    padding: 15px;
+}
+
+.package-list-items .absolute-in-image .duration span {
+    background: #F56961;
+    color: #FFF;
+    padding: 4px 7px;
+    border-radius: 3px;
+    line-height: 1;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.package-list-items .content {
+    width: 70%;
+    float: left;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+
+
+ul.list-info {
+    margin: 0;
+}
+
+ul.list-info li {
+    line-height: 1;
+    position: relative;
+    padding-left: 27px;
+}
+
+ul.list-info li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+ul.list-info li .icon {
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    padding-left: 1px;
+    border-radius: 50%;
+    background: #F56961;
+    color: #FFF;
+    text-align: center;
+    font-size: 10px;
+}
+
+ul.list-info.no-icon li {
+    padding-left: 0;
+}
+
+ul.list-info.bb-dotted li {
+    border-bottom: 1px dotted #E1E1E1;
+    padding-bottom: 12px;
+    margin: 0 0 12px;
+}
+.about{
+  font-size: 14px;
+}
+.p_about{
+  color:#0668BA;
+  font-size: 15px;
+}
+.pname{
+  font-size: 16px;
+}
