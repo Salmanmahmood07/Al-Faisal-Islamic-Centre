@@ -171,7 +171,7 @@ blockquote {
     font-family: "Hind",sans-serif;
     padding: 30px 20px}
 blockquote:before {
-    content: """;
+    content: "";
     font-size: 48px;
     color: #000;
     font-family: "Hind",sans-serif;
@@ -1805,6 +1805,7 @@ to {
 .header .header__right__icons li:hover a {
     color: #009047;
     border-color: #009047}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .fixed--header {
     position: relative}

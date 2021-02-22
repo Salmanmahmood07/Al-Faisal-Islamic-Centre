@@ -1,42 +1,3 @@
-<style >
-.dropbtn {
-
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover{
-  background-color: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-
-.show {display: block;}
-</style>
 
     <!-- Header -->
     <header id="header-area" class="header-area sticky--header">
@@ -51,14 +12,25 @@
               <div class="header__right">
                 <div class="header__right__top d-flex justify-content-end align-items-center flex-wrap flex-sm-nowrap">
                   <ul class="header__right__times d-flex justify-content-end">
-                    <li><p><i class="icofont icofont-full-sunny" onMouseOver="this.style.color='#55C827'"
-                    onMouseOut="this.style.color='#28a745'" style="color: #28a745;
-                    
-                    cursor: pointer;"></i>{{__('header.SUNRISE')}} : <span class="time-sunrise"></span></p></li>
-                    <li><p><i class="icofont icofont-full-night" onMouseOver="this.style.color='#55C827'"
-                    onMouseOut="this.style.color='#28a745'" style="color: #28a745;
-                    
-                    cursor: pointer;"></i>{{__('header.SUNSET')}} : <span class="time-sunset"></span></p></li>
+                    <li>
+                      <p>
+                        <i class="icofont icofont-full-sunny" onMouseOver="this.style.color='#55C827'"
+                      onMouseOut="this.style.color='#28a745'" style="color: #28a745;
+                      
+                      cursor: pointer;"></i>
+                      {{__('header.SUNRISE')}}: <span class="time-sunrise"></span>
+                    </p>
+                   </li>
+                  <li>
+                        <p>
+                          <i class="icofont icofont-full-night" onMouseOver="this.style.color='#55C827'"
+                              onMouseOut="this.style.color='#28a745'" style="color: #28a745;
+                              
+                              cursor: pointer;">
+                        
+                      </i>{{__('header.SUNSET')}}: <span class="time-sunset"></span>
+                    </p>
+                  </li>
                     
                     <!-- <li><a href="{{url('/user/forum')}}" class="topic" onMouseOver="this.style.color='#55C827'"
               onMouseOut="this.style.color='#fff'" style="color: white;
@@ -67,18 +39,26 @@
                     border: none;
                     cursor: pointer;"><i class="fa fa-comments"></i> Islamic Topics</a></li> -->
                     @if(Auth::check())
-                    <li><a href="{{url('/user/forum')}}" class="topic" onMouseOver="this.style.color='#55C827'"
-              onMouseOut="this.style.color='#28a745'" style="color: #28a745;
-                    padding: 16px;
-                    font-size: 16px;
-                    border: none;
-                    cursor: pointer;"><i class="fa fa-comments"></i>{{__('header.ISLAMIC TOPICS')}}</a></li>
-                    <li><a href="#"  onclick="myFunction()" onMouseOver="this.style.color='##28a745'"
-              onMouseOut="this.style.color='#28a745'" class="dropbtn" style="color: #28a745;"><i class="fa fa-user-o"></i>   {{Auth::user()->name}}</a>
+                    <li>
+                      <a href="{{url('/user/forum')}}" class="topic" onMouseOver="this.style.color='#55C827'"
+                    onMouseOut="this.style.color='#28a745'">
+                    <i class="fa fa-comments"></i>{{__('header.ISLAMIC TOPICS')}}
+                  </a>
+                </li>
+                    <li>
+                      <a href="#"  onclick="myFunction()" 
+                      onMouseOver="this.style.color='##28a745'"
+                      onMouseOut="this.style.color='#28a745'" class="dropbtn" 
+                      style="color: #28a745;">
+                      <i class="fa fa-user-o"></i>   {{Auth::user()->name}}</a>
                     <div id="myDropdown" class="dropdown-content">
                     <a href="{{url('/user/dashboard')}}">{{__('header.Dashboard')}}</a>
-                  </div></li>
-                <li>  <a href="{{url('/user/logout')}}"><button type="button" class="btn btn-success btn-lg btn-block">{{__('header.LOGOUT')}}</button></a></li>
+                  </div>
+                </li>
+                <li>
+                  <a href="{{url('/user/logout')}}"><button type="button" class="logout">{{__('header.LOGOUT')}}</button>
+                  </a>
+                </li>
                   </ul>
                     @else
                   <ul class="header__right__icons d-flex justify-content-end">
