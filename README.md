@@ -13,15 +13,15 @@ You need to follow these steps to clone project from github to Subdomain.
 
 ## Steps for creating Database in CPanel.
 
-1- Create subdomain from domains section in CPanel.
-2- Create DB by clicking on PhpmyAdmin.
-3- Create username and password.
-4- Import all tables in DB through alfaisal_islamic.sql file.
-5- Add DB name, username and password in .env file.
+- Create subdomain from domains section in CPanel.
+- Create DB by clicking on PhpmyAdmin.
+- Create username and password.
+- Import all tables in DB through alfaisal_islamic.sql file.
+- Add DB name, username and password in .env file.
 
 ## Steps to clone project on subdomain using CPanel
 
-1- In Cpanel go to advanced section and click on terminal, clone that project in your subdomain you have created.
-2- Project should be moved in domain's public_html.
-2- Install laravel.
-3- Install Composer.
+- In Cpanel go to advanced section and click on terminal, clone that project in your subdomain you have created.
+- Project should be moved in domain's public_html.
+- Install laravel.
+- Install Composer.
