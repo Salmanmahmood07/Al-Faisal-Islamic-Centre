@@ -43,8 +43,8 @@
                       @foreach($events as $event)
     									<article class="event-single wow fadeInLeft">
     										<div class="event-single__thumb">
-    											<a  href="{{url('/event_detail',$event->id)}}"">
-    												<img src="{{url('/assets/events')}}/{{$event->image}}" style="height:200px;width:150px;" alt="event thumb">
+    											<a  href="{{url('/event_detail',$event->id)}}">
+    												<img src="{{url('/assets/events')}}/{{$event->image}}" style="height:250px;width:350px;" alt="event thumb">
     											</a>
     											<div class="event-single__date">
     											<h3>{{  date("d M Y", strtotime($event->date)) }}</h3>
