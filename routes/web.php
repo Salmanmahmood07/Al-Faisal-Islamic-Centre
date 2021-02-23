@@ -20,6 +20,7 @@ use App\Http\Controllers\VisionController;
 use App\Http\Controllers\YearlyController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\OnlinetutoringController;
+use App\Http\Controllers\Tutor_Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,9 +42,18 @@ Route::get('/w', function () {
 Route::get('/',[MainController::class,'index']);
 
 Route::get('/admin', [Admin_Controller::class, 'index']);
+Route::get('/tutor', [Tutor_Controller::class, 'tutorindex']);
 Route::post('/admin/admin_authenticate', [Admin_Controller::class, 'admin_authenticate']);
 Route::get('/admin/logout', [Admin_Controller::class, 'logout']);
 
+Route::get('/tutor', [Tutor_Controller::class, 'tutorlogin']);
+Route::get('/tutorsignup', [Tutor_Controller::class, 'tutorsignup']);
+
+Route::group(['middleware' => ['istutor'], 'prefix' => 'tutor'], function () {
+
+  Route::get('/dashboard', [Tutor_Controller::class, 'dashboard']);
+
+});
 Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   
   Route::get('/dashboard', [Admin_Controller::class, 'dashboard']);
@@ -147,8 +157,8 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
 
    Route::get('/zoom',[OnlinetutoringController::class, 'create_meeting']);
 
-  // Route::get('/changerole', [Admin_Controller::class, 'changerole']);
-  // Route::post('/userrolechange', [Admin_Controller::class, 'changeuserrole']);
+  Route::get('/changerole', [Admin_Controller::class, 'changerole']);
+  Route::post('/userrolechange', [Admin_Controller::class, 'changeuserrole']);
 });
 
 //Route::group(['prefix'=>'user'],function(){
