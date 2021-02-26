@@ -40,7 +40,7 @@
             <div class="login-register" style='background-image:url({{url("/admin_asset")}}/images/background/login-register.jpg);'>
                 <div class="login-box card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material" method="POST" id="loginform" action="{{url('/admin/admin_authenticate')}}">
+                        <form class="form-horizontal form-material" method="POST" id="loginform" action="{{url('/tutor/tutor_authenticate')}}">
                           {!! csrf_field() !!}
 
                          <h3 class="box-title m-b-20">Sign In</h3>

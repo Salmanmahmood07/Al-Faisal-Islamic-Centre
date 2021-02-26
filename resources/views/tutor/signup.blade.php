@@ -40,7 +40,7 @@
             <div class="login-register" style='background-image:url({{url("/admin_asset")}}/images/background/login-register.jpg);'>
                 <div class="login-box card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material" method="POST" id="loginform" action="{{url('/admin/admin_authenticate')}}">
+                        <form class="form-horizontal form-material" id="tutor-form" enctype="multipart/form-data">
                           {!! csrf_field() !!}
 
                          <h3 class="box-title m-b-20">Sign Up</h3>
@@ -49,20 +49,40 @@
                                 <input class="form-control" name="name" type="text" required="" placeholder="Name" value="{{old('name')}}"> </div>
                                 <span id="subject" class="form-errors" style="color:red;">{{ $errors->first('name') }}</span>
                             </div>
-                         <div class="form-group ">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" name="about" required="" placeholder="About" value="{{old('about')}}"></div>
+                                <span id="subject" class="form-errors" style="color: red;">
+                                    {{$errors->first('about')}}
+                                </span>
+                            </div>
+                            <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="file" name="images" required="" placeholder="About" value="{{old('images')}}"></div>
+                                <span id="subject" class="form-errors" style="color: red;">
+                                    {{$errors->first('images')}}
+                                </span>
+                            </div>
+                        <div class="form-group ">
                             <div class="col-xs-12">
                                 <input class="form-control" name="email" type="email" required="" placeholder="Email" value="{{old('email')}}"> </div>
                                 <span id="subject" class="form-errors" style="color:red;">{{ $errors->first('email') }}</span>
-                            </div>
+                        </div>
+                        
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <input class="form-control" type="password" name="password" required="" placeholder="Password"> </div>
                                     <span id="subject" class="form-errors" style="color:red;">{{ $errors->first('password') }}</span>
                                 </div>
+                                <div class="form-group">
+                                <div class="col-xs-12">
+                                <input class="form-control" type="password" placeholder="Confirm password" name="password_confirmation"></div>
+                                <span id="subject" class="form-errors" style="color:red;">{{ $errors->first('password_confirmation') }}</span>
+                            </div>
                           
                             <div class="form-group text-center m-t-20">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
+                                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"   type="submit">Sign Up</button>
                                 </div>
                             </div>
                         </form>
@@ -95,6 +115,54 @@
             <!-- Style switcher -->
             <!-- ============================================================== -->
             <script src="{{url('/admin_asset')}}/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+            <script src="{{url('/admin_asset')}}/js/bootbox.min.js"></script>
+           
+            <script type="text/javascript">
+               
+              jQuery(document).ready(function(){
+
+                jQuery('#tutor-form').submit(function(e){
+                  e.preventDefault();
+                  $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                  });
+                  var myForm = document.getElementById('tutor-form');
+                  var formData = new FormData(myForm);
+                    jQuery.ajax({
+                      url: "{{ url('/tsignup') }}",
+                      method : 'post',
+                      data: formData,
+                      contentType: false,
+                       cache: false,
+                       processData: false,
+                      success: function(result){
+                        if(result.success == 0){
+
+                                  bootbox.alert({
+                        title: "Message",
+                        message:result.message,
+                        callback: function(){
+                            
+                          }
+                      });
+                        }
+                        else{
+                          bootbox.alert({
+                title: "Message",
+                message:result.message,
+                callback: function(){
+                   $(location).attr('href', '/tutor');
+                }
+              });
+
+
+                        }
+                      }});
+                  });
+              });
+            </script>
         </body>
 
         </html>

@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
+use Auth;
 
-class istutor
+class isTutor
 {
     /**
      * Handle an incoming request.
