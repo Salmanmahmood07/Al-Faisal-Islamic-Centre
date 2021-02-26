@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Response;
 use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Models\User;
 use Session;
 use Illuminate\Routing\Redirector;
 use App\Models\IslamicTopics;

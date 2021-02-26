@@ -31,6 +31,7 @@ use App\Http\Controllers\Tutor_Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    //*****Localization Routes*****
 Route::get('language/{lang}', function($lang){
   \session::put('locale', $lang);
   return redirect()->back();
@@ -41,19 +42,13 @@ Route::get('/w', function () {
 });
 Route::get('/',[MainController::class,'index']);
 
+//*****Admin Routes*****
+
 Route::get('/admin', [Admin_Controller::class, 'index']);
 Route::get('/tutor', [Tutor_Controller::class, 'tutorindex']);
 Route::post('/admin/admin_authenticate', [Admin_Controller::class, 'admin_authenticate']);
 Route::get('/admin/logout', [Admin_Controller::class, 'logout']);
 
-Route::get('/tutor', [Tutor_Controller::class, 'tutorlogin']);
-Route::get('/tutorsignup', [Tutor_Controller::class, 'tutorsignup']);
-
-Route::group(['middleware' => ['istutor'], 'prefix' => 'tutor'], function () {
-
-  Route::get('/dashboard', [Tutor_Controller::class, 'dashboard']);
-
-});
 Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   
   Route::get('/dashboard', [Admin_Controller::class, 'dashboard']);
@@ -148,20 +143,34 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   Route::get('/addvisionimages/{id}', [VisionController::class, 'adddvis']);
   Route::post('/addvisimage', [VisionController::class, 'addvisimage']);
 
+  // Route::get('/changerole', [Admin_Controller::class, 'changerole']);
+  // Route::post('/userrolechange', [Admin_Controller::class, 'changeuserrole']);
+});
+
+  //*****Tutor Routes*****
+
+  Route::get('/tutor', [Tutor_Controller::class, 'tutorlogin']);
+  Route::get('/tutorsignup', [Tutor_Controller::class, 'tutorsignup']);
+  Route::post('/tsignup', [Tutor_Controller::class, 'tsignup']);
+  Route::post('/tutor/tutor_authenticate', [Tutor_Controller::class, 'tutor_authenticate']);
+  Route::get('/tutor/logout', [Tutor_Controller::class, 'logout']);
+  
+  Route::group(['middleware' => ['isTutor'], 'prefix' => 'tutor'], function () {
+
+  Route::get('/dashboard', [Tutor_Controller::class, 'dashboard']);
+
   Route::get('/meetinginvite',[OnlinetutoringController::class, 'show']);
-  // Route::post('/create_invitation',[OnlinetutoringController::class, 'create_invitation']);
+  Route::post('/create_invitation',[OnlinetutoringController::class, 'create_invitation']);
   Route::get('/getallinvite',[OnlinetutoringController::class, 'getallinvite']);
   Route::get('/edit_invitation/{id}',[OnlinetutoringController::class, 'edit_invitation']);
   Route::post('/update_invitation',[OnlinetutoringController::class, 'update_invitation']);
   Route::post('/destroy_invitation/{id}',[OnlinetutoringController::class, 'destroy_invitation']);
+  Route::get('/zoom',[OnlinetutoringController::class, 'create_meeting']);
 
-   Route::get('/zoom',[OnlinetutoringController::class, 'create_meeting']);
-
-  Route::get('/changerole', [Admin_Controller::class, 'changerole']);
-  Route::post('/userrolechange', [Admin_Controller::class, 'changeuserrole']);
 });
 
-//Route::group(['prefix'=>'user'],function(){
+  //*****User Routes*****
+
 	Route::prefix('user')->group(function () {
 
   Route::post('/signup', [MainController::class, 'userSignUp']);
@@ -180,6 +189,9 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   Route::post('/postreply/{id}', [MainController::class, 'postreply']);
  
 });
+
+  //*****Frontend content routes*****
+
 	Route::get('/events', [PagesController::class, 'events']);
 	Route::get('/event_detail/{id}', [PagesController::class, 'event_detail']);
 	Route::get('/services', [PagesController::class, 'services']);
@@ -197,7 +209,5 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   Route::get('/team_detail/{id}', [PagesController::class, 'team_detail']);
   Route::get('/contact', [PagesController::class, 'contact']);
   Route::post('/storecontact', [ContactsController::class, 'storecontact']);
-
   Route::get('/comingsoon', [PagesController::class, 'comingsoon']);
-  
   Route::get('/onlinetutoring',[PagesController::class, 'onlinetutoring']);
