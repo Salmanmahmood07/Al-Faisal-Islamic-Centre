@@ -22,39 +22,9 @@
       <div class="col-md-8">
 
       </div>
-      <!-- <div class="col-md-2">
-        <button type="button" class="btn waves-effect waves-light  btn-info del-button" data-toggle="modal" data-target="#exampleModal"
-         style="margin-left:78px;">Add Category</button>
-      </div> -->
+      
     </div>
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Image Category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="category-form">
-            {!! csrf_field() !!}
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Category Title</label>
-            <input type="text" name="imgcategorytitle" class="form-control" required>
-              <div class="category-error" style="color:red;"></div>
-          </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" id="category-button">Submit</button>
-      </div>
-        </form>
-    </div>
-  </div>
-</div> -->
+    
     <div class="row" style="margin-top:10px;">
                   <div class="col-12">
                       <div class="card">
@@ -66,38 +36,39 @@
 
                                 {!! csrf_field() !!}
                                   <div class="form-group m-b-40">
-                                    
+                                    <input type="hidden" class="form-control" value="{{$getinvite->id}}" name="id" id="title" required >
+
                                    <label for="input2"> Meeting Topic</label>
-                                   <input type="text" class="form-control" value="{{old('topic')}}" name="topic" id="topic" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->topic}}" name="topic" id="topic" required >
                                   <span class="bar"></span>
                                 </div>
                                 <div class="form-group m-b-40">
                                    <label for="input2"> Description</label>
-                                   <input type="text" class="form-control" value="{{old('description')}}" name="description" id="description" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->description}}" name="description" id="description" required >
                                   <span class="bar"></span>
                                 </div>
                                 <div class="form-group m-b-40">
                                    <label for="input2">Date</label>&nbsp;<span class="bar">Format:&nbsp;M/D/Y&nbsp;Time&nbsp;(02/04/2021&nbsp;01:38 PM)</span>
-                                   <input type="text" class="form-control" value="{{old('start_time')}}" name="start_time" id="start_time" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->date}}" name="start_time" id="start_time" required >
                                   <span class="bar"></span>
                                 </div>
                                 <div class="form-group m-b-40">
                                    <label for="input2"> Meetingid</label>
-                                   <input type="text" class="form-control" value="{{old('meetingid')}}" name="meetingid" id="meetingid" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->meetingid}}" name="meetingid" id="meetingid" required >
                                   <span class="bar"></span>
                                 </div>
                                 <div class="form-group m-b-40">
                                    <label for="input2"> Passcode</label>
-                                   <input type="text" class="form-control" value="{{old('passcode')}}" name="passcode" id="passcode" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->passcode}}" name="passcode" id="passcode" required >
                                   <span class="bar"></span>
                                 </div>
                                 <div class="form-group m-b-40">
                                    <label for="input2"> Meetingurl</label>
-                                   <input type="text" class="form-control" value="{{old('meetingurl')}}" name="meetingurl" id="meetingurl" required >
+                                   <input type="text" class="form-control" value="{{$getinvite->meetingurl}}" name="meetingurl" id="meetingurl" required >
                                   <span class="bar"></span>
                                 </div>
 
-                                  <button type="submit" class="btn btn-info" >submit </button>
+                                  <button type="Update" class="btn btn-info" >Update </button>
 
                                   <!-- <div class="form-group m-b-40">
                                       <input type="text" class="form-control" id="input3">
@@ -151,7 +122,7 @@
                   var myForm = document.getElementById('meeting-form');
                   var formData = new FormData(myForm);
                     jQuery.ajax({
-                      url: "{{ url('/tutor/create_invitation') }}",
+                      url: "{{ url('/tutor/update_invitation') }}",
                       method : 'post',
                       data: formData,
                       contentType: false,
@@ -164,6 +135,7 @@
                         title: "Message",
                         message:result.message,
                         callback: function(){
+
                           }
                       });
                         }
@@ -172,7 +144,7 @@
                 title: "Message",
                 message:result.message,
                 callback: function(){
-                   $("#meeting-form").trigger("reset");
+                          $(location).attr('href', '/tutor/getallinvite');
                 }
               });
 

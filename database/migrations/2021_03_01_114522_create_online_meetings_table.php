@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOnlineMeetingTable extends Migration
+class CreateOnlineMeetingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateOnlineMeetingTable extends Migration
      */
     public function up()
     {
-        Schema::create('online_meeting', function (Blueprint $table) {
+        Schema::create('online_meetings', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tutor_id');
             $table->foreign('tutor_id')->references('id')->on('users');
             $table->string('topic', 256);
             $table->string('description', 256);
-            $table->string('date');
             $table->string('meetingid', 256);
             $table->string('passcode', 256);
             $table->string('meetingurl', 256);
+            $table->string('date');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
@@ -35,6 +36,6 @@ class CreateOnlineMeetingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('online_meeting');
+        Schema::dropIfExists('online_meetings');
     }
 }

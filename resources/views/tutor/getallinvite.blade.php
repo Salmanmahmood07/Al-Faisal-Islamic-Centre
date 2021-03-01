@@ -2,7 +2,7 @@
 .content{
 
 height: 100px;
-width: 300px;
+width: 260px;
 overflow: hidden;"
 
 }
@@ -44,7 +44,9 @@ overflow: hidden;"
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Content</th>
+                                                <th>Topic</th>
+                                                <th>Description</th>
+                                                <th>Meeting Url</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -56,8 +58,11 @@ overflow: hidden;"
                                           @foreach($invite as $getinvite)
                                             <tr>
                                                 <td><a href="javascript:void(0)">{{$count++}}</a></td>
-                                                <div class="content">
-                                                <td>{!!$getinvite->content!!}</div></td>
+                                              
+                                                <td>{!!$getinvite->topic!!}</td>
+                                                
+                                                <td class="content">{!!$getinvite->description!!}</td>
+                                                <td class="content"><a href="{{$getinvite->meetingurl}}"><b><i>JOIN MEETING</i></b></td></a>
 
                                                 <td><a href="{{url('/tutor/edit_invitation',$getinvite->id)}}"><button type="button" class="btn waves-effect waves-light   btn-warning">Edit</button></a>
                                                   <button type="button" class="btn waves-effect waves-light  btn-danger del-button" data-id="{{ $getinvite->id }}">Delete</button>
