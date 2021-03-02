@@ -109,8 +109,13 @@
                         <li><a href="{{url('/images')}}">{{__('header.Images')}}</a></li>
                       </ul>
                     </li>
-                    <!-- <li ><a href="{{url('/api/onlinetutoring')}}">{{__('header.Online Tutoring')}}</a>
-                    </li> -->
+                    <li class="cr-dropdown"><a href="#">{{__('header.Online Tutoring')}}</a>
+                      <ul class="cr-dropdown-menu">
+                        <!-- <li><a href="{{url('/api/onlinetutoring')}}">{{__('header.Online Meetings')}}</a></li> -->
+                        <li><a href="{{url('/onlinetutoring')}}">{{__('header.Online Meetings')}}</a></li>
+                        <li><a href="{{url('/alltutors')}}">{{__('header.Tutors')}}</a></li>
+                      </ul>
+                    </li>
                     <li class="cr-dropdown"><a href="activities.html">{{__('header.Calendar')}}</a>
                       <ul class="cr-dropdown-menu">
                         <li><a href="{{url('/comingsoon')}}">{{__('header.Ramazan')}}</a></li>

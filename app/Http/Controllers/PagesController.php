@@ -11,6 +11,7 @@ use App\Models\NewsPage;
 use App\Models\Images;
 use App\Models\Videos;
 use App\Models\Imam;
+use App\Models\User;
 use App\Models\History;
 use App\Models\Mission;
 use App\Models\Vision;
@@ -19,7 +20,8 @@ use App\Models\Imam_Image;
 use App\Models\History_Image;
 use App\Models\Mission_Image;
 use App\Models\Vision_Image;
-use App\Models\MeetingInvitation;
+use App\Models\OnlineMeeting;
+//use App\Models\MeetingInvitation;
 
 
 class PagesController extends Controller
@@ -124,8 +126,24 @@ class PagesController extends Controller
     public function comingsoon(){
       return view('frontend.comingsoon');
     }
+    // public function onlinetutoring(){
+    //   $data['invite']=MeetingInvitation::all();
+    //   return view('frontend.onlinetutoring',$data);
+    // }
     public function onlinetutoring(){
-      $data['invite']=MeetingInvitation::all();
-      return view('frontend.onlinetutoring',$data);
+      $data['invites']=OnlineMeeting::all();
+      return view('tutor.onlinetutoring',$data);
+    }
+    public function tutor(){
+      $data['tutors']=User::where('type','=', 'tutor')->get();
+      return view('tutor.tutor',$data);
+    }
+    public  function tutor_detail(Request $request){
+      $id=$request->id;
+      $data['tutors']=User::where("id","=",$id)->get();
+      $data['tutor_detail']=User::orderBy('id', 'desc')
+      ->paginate(3);
+      $detail=User::where("id","=",$id)->first();
+      return view('tutor.tutordetail',$data)->with('detail',$detail);
     }
 }

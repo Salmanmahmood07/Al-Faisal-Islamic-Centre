@@ -18,6 +18,8 @@ return
 	'Videos' => 'Videos',
 	'Images' => 'Images',
 	'Online Tutoring' => 'Online Tutoring',
+	'Online Meetings' => 'Online Meetings',
+	'Tutors' => 'Tutors',
 	'Calendar' => 'Calendar',
 	'Ramazan' => 'Ramazan',
 	'Yearly' => 'Yearly',

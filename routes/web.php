@@ -211,3 +211,5 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function () {
   Route::post('/storecontact', [ContactsController::class, 'storecontact']);
   Route::get('/comingsoon', [PagesController::class, 'comingsoon']);
   Route::get('/onlinetutoring',[PagesController::class, 'onlinetutoring']);
+  Route::get('/alltutors',[PagesController::class, 'tutor']);
+  Route::get('/tutor_detail/{id}',[PagesController::class, 'tutor_detail']);

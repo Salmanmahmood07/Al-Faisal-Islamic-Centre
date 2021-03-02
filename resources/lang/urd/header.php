@@ -18,6 +18,8 @@ return
 	'Videos' => 'ویڈیوز',
 	'Images' => 'تصاویر',
 	'Online Tutoring' => 'آن لائن ٹیوشن',
+	'Online Meetings' => 'آن لائن لیکچر',
+	'Tutors' => 'اساتذہ',
 	'Calendar' => 'کیلنڈر',
 	'Ramazan' => 'رمضان کیلنڈر',
 	'Yearly' => 'سالانہ کیلنڈر',
