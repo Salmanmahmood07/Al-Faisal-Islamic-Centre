@@ -58,7 +58,7 @@
 
                 <div class="about-images clearfix"> 
                   
-                  <!-- <img class="wow fadeInUp" src="{{url('/assets/imams')}}/{{$detail->image}}" alt="Single event Details"> -->
+                  
                   @php
                     $i=1;
                     $class = '';
@@ -91,18 +91,30 @@
               </div>
               </div>
               
-              <h2 class="event-details__title">{{$detail->imamname}}</h2>
+              <h2 class="event-details__title">{{$tutor->name}}</h2>
               <div class="event-details__meta">
                 <ul>
-                  <li><span>Designation:</span> {{$detail->designation}}</li>
+                  <li><span>About:</span></li>
                 </ul>
               </div>
               <div class="event-details__content">
-                <p> {!!$detail->about!!}</p>
+                <p> {!!$tutor->about!!}</p>
 
                 </div>
+                @foreach($invites as $invite)
+<script>
+function open_win()
+{
+window.open("{{$invite->meetingurl}}");
+}
+</script>
               <div class="calltoaction d-flex justify-content-left justify-content-md-center flex-wrap felx-md-nowrap">
-                <h3>Let’s join the Class, know about {{$detail->name}}...</h3>
+                
+               <h3>Let’s join the Class</h3><div class="banner__content__button">
+                  <a id="start" onclick="open_win()" href="" class="cr-btn cr-btn--theme cr-btn cr-btn--sm"><span>Join Meeting</span></a>
+                  </div>
+                
+                @endforeach
 
               </div>
               <div class="event-details__speakers">
@@ -115,15 +127,15 @@
                       <div class="hexagon">
                         <div class="hexagon__inner1">
                           <div class="hexagon__inner2">
-                            <img src="{{url('/assets/tutors')}}/{{$detail->photo}}" alt="speaker 1">
+                            <img src="{{url('/assets/tutors')}}/{{$tutor->photo}}" alt="speaker 1">
 
                           </div>
                         </div>
-                      </div>
+                      </div> 
                     </div>
                     <div class="signle-speaker__content">
-                      <h5>{{$detail->imamname}}</h5><br>
-                      <span>{{$detail->about}}</span>
+                      <h5>{{$tutor->name}}</h5><br>
+                      <span>{{$tutor->about}}</span>
                     </div>
                   </div><!-- //Single Speaker -->
                   <!-- Single Speaker -->
@@ -161,7 +173,7 @@
 
               <!-- Single Widget (Searchbox) -->
               <div class="single-widget wgt-searchbox">
-                <h4 class="widget-title">Search Team</h4>
+                <h4 class="widget-title">Search Tutor</h4>
                 <form action="#">
                   <input type="text" placeholder="Keywords here...">
                   <button type="submit"><i class="fa fa-paper-plane-o"></i></button>
@@ -180,11 +192,11 @@
                   <li><a href="events.html">Hijab <span>18</span></a></li>
                   <li><a href="events.html">Fluneral <span>22</span></a></li>
                 </ul>
-              </div><!-- //Single Widget (Categories) -->
+              </div>-->
 
-              <!-- Single Widget (Recentpost) -->
+               <!-- Single Widget (Recentpost)  -->
               <div class="single-widget wgt-recentpost">
-                <h4 class="widget-title">Other Team Members</h4>
+                <h4 class="widget-title">Other Tutors</h4>
                 <ul>
                   @foreach($tutor_detail as $tutor)
                   <li>

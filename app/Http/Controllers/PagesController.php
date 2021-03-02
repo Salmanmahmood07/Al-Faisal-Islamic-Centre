@@ -140,10 +140,10 @@ class PagesController extends Controller
     }
     public  function tutor_detail(Request $request){
       $id=$request->id;
+      $data['invites']=OnlineMeeting::where("tutor_id","=",$id)->get();
       $data['tutors']=User::where("id","=",$id)->get();
-      $data['tutor_detail']=User::orderBy('id', 'desc')
-      ->paginate(3);
-      $detail=User::where("id","=",$id)->first();
-      return view('tutor.tutordetail',$data)->with('detail',$detail);
+      $data['tutor_detail']=User::where("type","=", "tutor")->get();
+
+      return view('tutor.tutordetail',$data);
     }
 }
