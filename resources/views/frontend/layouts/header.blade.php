@@ -112,7 +112,7 @@
                     <li class="cr-dropdown"><a href="#">{{__('header.Online Tutoring')}}</a>
                       <ul class="cr-dropdown-menu">
                         <!-- <li><a href="{{url('/api/onlinetutoring')}}">{{__('header.Online Meetings')}}</a></li> -->
-                        <li><a href="{{url('/onlinetutoring')}}">{{__('header.Online Meetings')}}</a></li>
+                        <!-- <li><a href="{{url('/onlinetutoring')}}">{{__('header.Online Meetings')}}</a></li> -->
                         <li><a href="{{url('/alltutors')}}">{{__('header.Tutors')}}</a></li>
                       </ul>
                     </li>
@@ -127,7 +127,7 @@
                       <ul class="cr-dropdown-menu">
                         <li><a href="{{url('/services')}}">{{__('header.Services')}}</a></li>
                         <li><a href="{{url('/courses')}}">{{__('header.Courses')}}</a></li>
-                        <li><a href="{{url('/comingsoon')}}">{{__('header.Donations')}}</a></li>
+                        <li><a href="{{url('/donations')}}">{{__('header.Donations')}}</a></li>
                         <li><a href="{{url('/upcomingprojects')}}">{{__('header.Upcoming Projects')}}</a></li>
                         <li><a href="{{url('/comingsoon')}}">{{__('header.Child Sponsor')}}</a></li>
 

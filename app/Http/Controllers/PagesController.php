@@ -146,4 +146,7 @@ class PagesController extends Controller
 
       return view('tutor.tutordetail',$data);
     }
+    public function donation(){
+      return view('frontend.donation');
+    }
 }
